@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+function computerPlay() {
+        let computerChoice = ["paper","rock","scissors"];
+            return computerChoice[Math.floor(Math.random()*computerChoice.length)];
+            //Floor will turn decimal into an int
+}
+//Function that player picks PRS
+function playerPlay() {
+    let playerChoice = prompt("Rock, paper, or scissors?");
+    return playerChoice.toLowerCase();
+}
+//turns player and computer selection into a value for winner or loser
+function winner(player, computer) {
+if (player == 'rock' && computer == 'scissors'|| player == "paper" && computer == "rock" || player == "scissors" && computer == "paper")
+    return 0;
+else if (player==computer)
+    return 1;
+else if (player!="rock"||player!="scissors"||player!="paper")
+    console.log("There was an error!")
+else 
+    return 2;
+
+}
+
+
+function playRound() {
+    let playerAction = playerPlay();
+    let compterAction = computerPlay();
+    return winner(playerAction, compterAction);
+
+}
+
+function game() {
+let pPoints = 0;
+let cPoints = 0;    
+while (cPoints != 3 && pPoints != 3) {
+    let winner = playRound();
+    if (winner == 0 ){
+    pPoints++
+    console.log("You win that round!");
+    }
+    else if (winner == 2){
+    cPoints++
+    console.log("You lost that round!");
+
+    }
+    else if (winner == 1){
+        console.log("You tied that round!")
+    }
+    else  {
+    console.log("error")
+    }
+    console.log('Score: Player:' + pPoints + ' Computer: ' + cPoints);
+}
+
+    if (pPoints>cPoints)
+    console.log("Congrats you win!")
+    else
+    console.log("Better luck next time!")
+}
+
+
+
+</script>
+<body>
+</html>
